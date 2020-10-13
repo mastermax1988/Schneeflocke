@@ -15,6 +15,14 @@ public class Schneeflocke extends Canvas
             this.x=x;
             this.y=y;
         }
+        public Point(double x, double y)
+        {
+            this((int)x, (int) y);
+        }
+        public String toString()
+        {
+            return x + " " + y;
+        }
     }
     private Random r;
     private ArrayList<Point> points;
@@ -45,9 +53,21 @@ public class Schneeflocke extends Canvas
            for(int i=0;i<points.size()-1;i++)
            {
                Point oldpoint = points.get(i);
-               newpoints.add(oldpoint);
+               Point oldpoint2 = points.get(i+1);
 
+               int x1=oldpoint.x;
+               int x2 = oldpoint2.x;
+               int y1 = oldpoint.y;
+               int y2 = oldpoint2.y;
+               double newlength = Math.sqrt(Math.pow(x2-x1,2)+Math.pow(y2-y1,2))/3.0;
+               double angleedge = Math.atan(((double)(y2-y1))/(double)(x2-x1));
+               double angle = Math.PI - angleedge - Math.PI/6;
+               System.out.println(angleedge/2/Math.PI*360);
+               newpoints.add(oldpoint);
+               System.out.println(newpoints);
            }
+           newpoints.add(points.get(0));
+           points = newpoints;
            paint(getGraphics());
        });
        t.start();
