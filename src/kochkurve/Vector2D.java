@@ -8,6 +8,16 @@ public class Vector2D
         this.x=x;
         this.y=y;
     }
+
+    public Vector2D(Vector2D v)
+    {
+        x=v.getX();
+        y=v.getY();
+    }
+    public Vector2D(Vector2D v1, Vector2D v2)
+    {
+        this(v1.getX(), v1.getY(), v2.getX(), v2.getY());
+    }
     public Vector2D(double x1, double y1, double x2, double y2)
     {
         this(x2-x1,y2-y1);
@@ -24,9 +34,10 @@ public class Vector2D
         x=x2;
         y=y2;
     }
-    public Vector2D add(Vector2D v1, Vector2D v2)
+    public void add(Vector2D v)
     {
-        return new Vector2D(v1.getX()+v2.getY(),v1.getY()+v2.getY());
+        x+=v.getX();
+        y+=v.getY();
     }
     public double getX()
     {
@@ -45,5 +56,9 @@ public class Vector2D
     public void setY(double y)
     {
         this.y = y;
+    }
+    public String toString()
+    {
+        return "x: " + x + " y:" + y;
     }
 }

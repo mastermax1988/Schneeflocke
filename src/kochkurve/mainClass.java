@@ -12,7 +12,7 @@ public class mainClass
         Frame frame = new Frame("Schnee");
         Schneeflocke schneeflocke = new Schneeflocke();
         frame.add(schneeflocke);
-        frame.setSize(800, 600);
+        frame.setSize(800, 800);
         frame.setVisible(true);
         schneeflocke.test();
     }
