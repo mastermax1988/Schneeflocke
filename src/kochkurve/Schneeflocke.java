@@ -18,7 +18,17 @@ public class Schneeflocke extends Canvas
     }
     private void initPoints()
     {
-       points = new ArrayList<>();
+        points = new ArrayList<>();
+        if(false) //viereck statt dreieck
+        {
+            points.add(new Vector2D(20, 150));
+            points.add(new Vector2D(150, 150));
+            points.add(new Vector2D(150, 300));
+            points.add(new Vector2D(20, 300));
+            points.add(new Vector2D(20, 150));
+            return;
+        }
+
         double length=500;
         var a = new Vector2D(20,150);
         var b = new Vector2D(a.getX()+length,a.getY());
@@ -29,7 +39,6 @@ public class Schneeflocke extends Canvas
         points.add(a);
         points.add(b);
         points.add(c);
-        System.out.println(points);
         points.add(points.get(0));
     }
     public void paint(Graphics g)
